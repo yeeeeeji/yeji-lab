@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-function Wishes() {
+function Sidebar() {
   return (
     <div>
-      <div>Wishes</div>
       <Link to="/">Home</Link>
+      <Link to="/wishes">Wishes</Link>
     </div>
   );
 }
 
-export default Wishes;
+export default Sidebar;
