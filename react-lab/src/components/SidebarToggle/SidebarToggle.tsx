@@ -1,5 +1,5 @@
 function SidebarToggle() {
-  return;
+  return <div>🫧</div>;
 }
 
 export default SidebarToggle;
