@@ -9,12 +9,10 @@ function MenuButton() {
   };
 
   return (
-    <>
+    <div style={{ position: "relative" }}>
       <MenuButtonStyle onClick={handleToggle}>🫧</MenuButtonStyle>
-      <div style={{ display: isOpen ? "block" : "none" }}>
-        <MenuPalette />
-      </div>
-    </>
+      <MenuPalette isOpen={isOpen} />
+    </div>
   );
 }
 
