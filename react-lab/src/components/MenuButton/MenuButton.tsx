@@ -1,7 +1,7 @@
-import { MenuButton } from "./MenuButton";
+import { MenuButtonStyle } from "./MenuButtonStyle";
 
-function SidebarToggle() {
-  return <MenuButton>🫧</MenuButton>;
+function MenuButton() {
+  return <MenuButtonStyle>🫧</MenuButtonStyle>;
 }
 
-export default SidebarToggle;
+export default MenuButton;

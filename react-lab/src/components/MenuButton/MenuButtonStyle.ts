@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MenuButton = styled.button`
+export const MenuButtonStyle = styled.button`
   display: flex;
   background-color: transparent;
   border: none;

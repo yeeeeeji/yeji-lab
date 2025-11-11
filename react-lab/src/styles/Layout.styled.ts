@@ -9,5 +9,5 @@ export const MainHeader = styled.div`
   display: flex;
   height: 300px;
   width: 100vw;
-  font-size: 100px;
+  font-size: 80px;
 `;
