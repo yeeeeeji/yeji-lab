@@ -1,13 +1,19 @@
 import { MainTitle } from "../styles/Typography.styled";
-import { MainContainer, MainHeader } from "../styles/Layout.styled";
+import {
+  MainContainer,
+  MainHeader,
+  MainTitleContainer,
+} from "../styles/Layout.styled";
 import MenuButton from "../components/MenuButton/MenuButton";
 
 function Home() {
   return (
     <MainContainer>
       <MainHeader>
-        <MenuButton />
-        <MainTitle>Home</MainTitle>
+        <MainTitleContainer>
+          <MenuButton />
+          <MainTitle>Home</MainTitle>
+        </MainTitleContainer>
       </MainHeader>
       <div className="content"></div>
     </MainContainer>

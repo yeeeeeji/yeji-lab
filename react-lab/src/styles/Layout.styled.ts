@@ -11,3 +11,8 @@ export const MainHeader = styled.div`
   width: 100vw;
   font-size: 80px;
 `;
+
+export const MainTitleContainer = styled.div`
+  display: flex;
+  margin: auto;
+`;
