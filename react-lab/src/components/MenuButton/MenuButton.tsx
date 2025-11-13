@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { MenuButtonStyle } from "./MenuButtonStyle";
-import MenuPalette from "../MenuPalette/MenuPalette";
+import { MenuPalette } from "../MenuPalette/MenuPalette";
 
-function MenuButton() {
+export const MenuButton = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -14,6 +14,4 @@ function MenuButton() {
       <MenuPalette isOpen={isOpen} />
     </div>
   );
-}
-
-export default MenuButton;
+};

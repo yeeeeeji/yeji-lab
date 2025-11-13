@@ -6,7 +6,7 @@ interface MenuPaletteProps {
   isOpen: boolean;
 }
 
-function MenuPalette({ isOpen }: MenuPaletteProps) {
+export const MenuPalette = ({ isOpen }: MenuPaletteProps) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -21,6 +21,4 @@ function MenuPalette({ isOpen }: MenuPaletteProps) {
       ))}
     </MenuPaletteContainerStyle>
   );
-}
-
-export default MenuPalette;
+};

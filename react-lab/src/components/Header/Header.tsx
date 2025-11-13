@@ -1,6 +1,6 @@
 import { MainHeader, MainTitleContainer } from "../../styles/Layout.styled";
 import { MainTitle } from "../../styles/Typography.styled";
-import MenuButton from "../MenuButton/MenuButton";
+import { MenuButton } from "../MenuButton/MenuButton";
 
 interface HeaderProps {
   title: string;
