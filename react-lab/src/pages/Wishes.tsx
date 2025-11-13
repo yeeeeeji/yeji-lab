@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import { MainContainer } from "../styles/Layout.styled";
+import { Header } from "../components/Header/Header";
 
 function Wishes() {
   return (
-    <div>
-      <div>Wishes</div>
-      <Link to="/">Home</Link>
-    </div>
+    <MainContainer>
+      <Header title="Wishes" />
+    </MainContainer>
   );
 }
 

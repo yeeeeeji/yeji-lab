@@ -7,7 +7,7 @@ interface MenuPaletteContainerProps {
 export const MenuPaletteContainerStyle = styled.div<MenuPaletteContainerProps>`
   display: ${(props) => (props.$isOpen ? "block" : "none")};
   position: absolute;
-  right: 100px;
+  right: 120px;
   bottom: 10px;
 `;
 
