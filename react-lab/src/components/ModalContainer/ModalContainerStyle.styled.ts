@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const WishModalStyle = styled.div`
+export const ModalContainerStyle = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;

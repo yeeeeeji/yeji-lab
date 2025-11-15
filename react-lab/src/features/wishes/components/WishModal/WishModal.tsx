@@ -1,15 +1,5 @@
-import { ModalConfirmButton } from "../../../../components/ModalConfirmButton/ModalConfirmButton";
-import { ModalOverlay } from "../../../../components/ModalOverlay/ModalOverlay";
-import { WishModalStyle } from "./WishModalStyle.styled";
+import { Modal } from "../../../../components/Modal/Modal";
 
 export const WishModal = () => {
-  return (
-    <>
-      <ModalOverlay />
-      <WishModalStyle>
-        <ModalConfirmButton text="등록" />
-      </WishModalStyle>
-      ;
-    </>
-  );
+  return <Modal confirmText="등록하기"></Modal>;
 };
