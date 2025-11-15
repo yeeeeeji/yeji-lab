@@ -8,6 +8,7 @@ export const MainContainer = styled.div`
 `;
 
 export const MainContent = styled.div`
+  display: flex;
   width: 1200px;
   margin: 0px auto;
 `;
