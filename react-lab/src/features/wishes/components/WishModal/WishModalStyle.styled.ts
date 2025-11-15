@@ -5,7 +5,9 @@ export const WishModalStyle = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
+  width: 400px;
   height: 500px;
-  background-color: red;
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
 `;
