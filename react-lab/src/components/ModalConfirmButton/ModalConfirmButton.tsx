@@ -1,5 +1,9 @@
 import { ModalConfirmButtonStyle } from "./ModalConfirmButtonStyle.styled";
 
-export const ModalConfirmButton = () => {
-  return <ModalConfirmButtonStyle>확인</ModalConfirmButtonStyle>;
+interface ModalConfirmButtonProps {
+  text: string;
+}
+
+export const ModalConfirmButton = ({ text }: ModalConfirmButtonProps) => {
+  return <ModalConfirmButtonStyle>{text}</ModalConfirmButtonStyle>;
 };
