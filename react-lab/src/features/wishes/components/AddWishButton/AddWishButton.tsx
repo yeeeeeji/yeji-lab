@@ -1,5 +1,9 @@
 import { AddWishButtonStyle } from "./AddWishButtonStyle.styled";
 
-export const AddWishButton = () => {
-  return <AddWishButtonStyle>Add Wish</AddWishButtonStyle>;
+interface AddWishButtonProps {
+  onClick?: () => void;
+}
+
+export const AddWishButton = ({ onClick }: AddWishButtonProps) => {
+  return <AddWishButtonStyle onClick={onClick}>Add Wish</AddWishButtonStyle>;
 };

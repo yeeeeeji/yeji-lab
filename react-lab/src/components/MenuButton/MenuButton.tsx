@@ -16,7 +16,7 @@ export const MenuButton = () => {
     PAGES.find((page) => page.path === location.pathname)?.emoji ?? "?";
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ display: "flex", position: "relative" }}>
       <MenuButtonStyle onClick={handleToggle}>{pageEmoji}</MenuButtonStyle>
       <MenuPalette isOpen={isOpen} />
     </div>

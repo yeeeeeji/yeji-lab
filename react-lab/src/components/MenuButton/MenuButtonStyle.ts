@@ -6,4 +6,5 @@ export const MenuButtonStyle = styled.button`
   border: none;
   padding: 0;
   margin-right: 10px;
+  font-size: 60px;
 `;
