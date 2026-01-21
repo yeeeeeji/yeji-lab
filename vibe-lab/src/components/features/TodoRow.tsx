@@ -1,10 +1,5 @@
 import type React from 'react';
-
-export interface TodoItem {
-  id: string;
-  text: string;
-  completed: boolean;
-}
+import type { TodoItem } from '../../types/todo.type';
 
 interface TodoRowProps {
   todo: TodoItem;
@@ -96,4 +91,3 @@ export const TodoRow: React.FC<TodoRowProps> = ({
     </div>
   );
 };
-
