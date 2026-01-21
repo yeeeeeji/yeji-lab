@@ -52,3 +52,27 @@ src/
 - Services: something.service.ts
 - Types: something.type.ts
 - Utils: camelCase.ts
+
+## Git Commint Conventions
+
+### Format
+[vibe] <type>: <summmary>
+
+### Project Tag
+- All commit messages must start with [vibe]
+- [vibe] indetifies this commit as part of the vibe project
+
+### Types
+- feat: new feature
+- fix: bug fix
+- refactor: code structure improvement without changing behavior
+- chore: tooling, config, build, or dependency changes
+- style: formatting, linting, no logic change
+- test: test-related changes
+- docs: documentation changes
+- perf: performance improvements
+
+### Summary
+- Written in Korean
+- Describe what was done
+- One change per commint
