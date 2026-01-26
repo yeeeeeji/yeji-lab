@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import ToDoList from './pages/ToDoList';
+import ToDoList from './pages/ToDoList/ToDoList';
 
 function App() {
   return (

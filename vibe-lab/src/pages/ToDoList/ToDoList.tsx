@@ -1,13 +1,14 @@
 import { useRef } from 'react';
-import { TodoRow } from '../components/features/TodoRow';
-import BackButton from '../components/layout/BackButton';
-import { useTitleState } from '../hooks/pages/ToDoList/title/useTitleState';
-import { useTitleInteractions } from '../hooks/pages/ToDoList/title/useTitleInteractions';
-import { useDateState } from '../hooks/pages/ToDoList/date/useDateState';
-import { useDateInteractions } from '../hooks/pages/ToDoList/date/useDateInteractions';
-import { useTodoState } from '../hooks/pages/ToDoList/todo/useTodoState';
-import { useTodoInteractions } from '../hooks/pages/ToDoList/todo/useTodoInteractions';
-import { formatDate } from '../utils/dateUtils';
+import { TodoRow } from './components/TodoRow';
+import BackButton from '../../components/layout/BackButton';
+import { useTitleState } from '../../hooks/pages/ToDoList/title/useTitleState';
+import { useTitleInteractions } from '../../hooks/pages/ToDoList/title/useTitleInteractions';
+import { useDateState } from '../../hooks/pages/ToDoList/date/useDateState';
+import { useDateInteractions } from '../../hooks/pages/ToDoList/date/useDateInteractions';
+import { useTodoState } from '../../hooks/pages/ToDoList/todo/useTodoState';
+import { useTodoInteractions } from '../../hooks/pages/ToDoList/todo/useTodoInteractions';
+import { formatDate } from '../../utils/dateUtils';
+import CustomizeButton from './components/CustomizeButton';
 
 function ToDoList() {
   const titleInputRef = useRef<HTMLInputElement>(null);
@@ -120,6 +121,7 @@ function ToDoList() {
           ))}
         </div>
       </div>
+      <CustomizeButton />
     </div>
   );
 }
