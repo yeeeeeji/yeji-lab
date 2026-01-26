@@ -1,7 +1,7 @@
-interface CustomizeButtonProps {
+interface ThemeButtonProps {
   onClick: () => void;
 }
-function CustomizeButton({ onClick }: CustomizeButtonProps) {
+function ThemeButton({ onClick }: ThemeButtonProps) {
   return (
     <button 
       className="absolute top-8 right-8 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:shadow-lg transition-shadow"
@@ -25,4 +25,4 @@ function CustomizeButton({ onClick }: CustomizeButtonProps) {
   );
 }
 
-export default CustomizeButton;
+export default ThemeButton;

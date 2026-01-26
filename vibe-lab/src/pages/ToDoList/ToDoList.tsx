@@ -8,10 +8,10 @@ import { useDateInteractions } from '../../hooks/pages/ToDoList/date/useDateInte
 import { useTodoState } from '../../hooks/pages/ToDoList/todo/useTodoState';
 import { useTodoInteractions } from '../../hooks/pages/ToDoList/todo/useTodoInteractions';
 import { formatDate } from '../../utils/dateUtils';
-import CustomizeButton from './components/CustomizeButton';
 import { useThemeState } from '../../hooks/pages/ToDoList/theme/useTheme';
 import { useThemeInteractions } from '../../hooks/pages/ToDoList/theme/useThemeInteractions';
-import CustomizeModal from './components/CustomizeModal';
+import ThemeButton from './components/ThemeButton';
+import ThemeModal from './components/ThemeModal';
 
 function ToDoList() {
   const titleInputRef = useRef<HTMLInputElement>(null);
@@ -53,11 +53,12 @@ function ToDoList() {
   });
 
   // 커스터마이징 모달
-  const { showTheme, setShowTheme } = useThemeState();
-  const { handleShowTheme } = useThemeInteractions({
+  const { showTheme, setShowTheme, bgColor, setBgColor } = useThemeState();
+  const { handleShowTheme, handleBgColor } = useThemeInteractions({
     themeRef,
     showTheme,
     setShowTheme,
+    setBgColor
   });
 
   return (
@@ -68,8 +69,8 @@ function ToDoList() {
       <BackButton to="/" />
 
       <div
-        className="bg-white p-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)] relative flex flex-col"
-        style={{ width: '679px', height: '740px' }}
+        className={`p-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)] relative flex flex-col`}
+        style={{ width: '679px', height: '740px', backgroundColor: bgColor }}
       >
         {/* 날짜 표시 및 달력 */}
         <div className="relative flex justify-end mb-4">
@@ -133,8 +134,8 @@ function ToDoList() {
           ))}
         </div>
       </div>
-      <CustomizeButton onClick={handleShowTheme} />
-      {showTheme && <CustomizeModal />}
+      <ThemeButton onClick={handleShowTheme} />
+      {showTheme && <ThemeModal ref={themeRef} bgColor={bgColor} handleBgColor={handleBgColor} />}
     </div>
   );
 }
