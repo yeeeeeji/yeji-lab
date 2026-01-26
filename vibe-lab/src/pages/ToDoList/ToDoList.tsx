@@ -9,10 +9,14 @@ import { useTodoState } from '../../hooks/pages/ToDoList/todo/useTodoState';
 import { useTodoInteractions } from '../../hooks/pages/ToDoList/todo/useTodoInteractions';
 import { formatDate } from '../../utils/dateUtils';
 import CustomizeButton from './components/CustomizeButton';
+import { useThemeState } from '../../hooks/pages/ToDoList/theme/useTheme';
+import { useThemeInteractions } from '../../hooks/pages/ToDoList/theme/useThemeInteractions';
+import CustomizeModal from './components/CustomizeModal';
 
 function ToDoList() {
   const titleInputRef = useRef<HTMLInputElement>(null);
   const calendarRef = useRef<HTMLDivElement>(null);
+  const themeRef = useRef<HTMLDivElement>(null);
 
   // 제목 도메인
   const { title, setTitle, isEditingTitle, setIsEditingTitle } =
@@ -46,6 +50,14 @@ function ToDoList() {
     todos,
     setTodos,
     setEditingTodoId,
+  });
+
+  // 커스터마이징 모달
+  const { showTheme, setShowTheme } = useThemeState();
+  const { handleShowTheme } = useThemeInteractions({
+    themeRef,
+    showTheme,
+    setShowTheme,
   });
 
   return (
@@ -121,7 +133,8 @@ function ToDoList() {
           ))}
         </div>
       </div>
-      <CustomizeButton />
+      <CustomizeButton onClick={handleShowTheme} />
+      {showTheme && <CustomizeModal />}
     </div>
   );
 }
