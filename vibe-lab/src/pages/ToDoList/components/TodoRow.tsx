@@ -58,9 +58,12 @@ export const TodoRow: React.FC<TodoRowProps> = ({
           onFocus={onFocus}
           onBlur={onBlur}
           data-todo-id={todo.id}
-          className={`w-full pr-6 outline-none border-b-2 border-transparent hover:border-gray-300 focus:border-gray-500 transition-colors ${
-            todo.completed ? 'line-through text-gray-400' : 'text-gray-700'
-          }`}
+          className={`
+            w-full pr-6 outline-none border-b-2 border-transparent 
+            hover:border-gray-300 focus:border-gray-500 transition-colors 
+            bg-transparent
+            ${ todo.completed ? 'line-through text-gray-400' : 'text-gray-700' }
+          `}
           placeholder="할 일을 입력하세요..."
         />
 
