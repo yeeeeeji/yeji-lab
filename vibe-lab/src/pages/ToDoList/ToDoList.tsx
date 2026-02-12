@@ -1,31 +1,19 @@
-import { useRef } from 'react';
-import { TodoRow } from './components/TodoRow';
-import BackButton from '../../components/layout/BackButton';
-import { useTitleState } from '../../hooks/pages/ToDoList/title/useTitleState';
-import { useTitleInteractions } from '../../hooks/pages/ToDoList/title/useTitleInteractions';
-import { useDateState } from '../../hooks/pages/ToDoList/date/useDateState';
-import { useDateInteractions } from '../../hooks/pages/ToDoList/date/useDateInteractions';
-import { useTodoState } from '../../hooks/pages/ToDoList/todo/useTodoState';
-import { useTodoInteractions } from '../../hooks/pages/ToDoList/todo/useTodoInteractions';
-import { formatDate } from '../../utils/dateUtils';
-import { useThemeState } from '../../hooks/pages/ToDoList/theme/useTheme';
-import { useThemeInteractions } from '../../hooks/pages/ToDoList/theme/useThemeInteractions';
-import ThemeButton from './components/ThemeButton';
-import ThemeModal from './components/ThemeModal';
+import { useRef } from "react";
+import { TodoRow } from "./components/TodoRow";
+import BackButton from "../../components/layout/BackButton";
+import { useDateState } from "../../hooks/pages/ToDoList/date/useDateState";
+import { useDateInteractions } from "../../hooks/pages/ToDoList/date/useDateInteractions";
+import { useTodoState } from "../../hooks/pages/ToDoList/todo/useTodoState";
+import { useTodoInteractions } from "../../hooks/pages/ToDoList/todo/useTodoInteractions";
+import { formatDate } from "../../utils/dateUtils";
+import { useThemeState } from "../../hooks/pages/ToDoList/theme/useTheme";
+import { useThemeInteractions } from "../../hooks/pages/ToDoList/theme/useThemeInteractions";
+import ThemeButton from "./components/ThemeButton";
+import ThemeModal from "./components/ThemeModal";
 
 function ToDoList() {
-  const titleInputRef = useRef<HTMLInputElement>(null);
   const calendarRef = useRef<HTMLDivElement>(null);
   const themeRef = useRef<HTMLDivElement>(null);
-
-  // 제목 도메인
-  const { title, setTitle, isEditingTitle, setIsEditingTitle } =
-    useTitleState();
-  const { handleTitleBlur, handleTitleKeyDown } = useTitleInteractions({
-    isEditingTitle,
-    setIsEditingTitle,
-    titleInputRef,
-  });
 
   // 날짜 도메인
   const { selectedDate, showCalendar, setShowCalendar, setSelectedDate } =
@@ -53,24 +41,26 @@ function ToDoList() {
   });
 
   // 커스터마이징 모달
-  const { showTheme, setShowTheme, bgColor, setBgColor } = useThemeState();
-  const { handleShowTheme, handleBgColor } = useThemeInteractions({
+  const { showTheme, setShowTheme, title, setTitle, bgColor, setBgColor } =
+    useThemeState();
+  const { handleShowTheme, handleTheme, handleBgColor } = useThemeInteractions({
     themeRef,
     showTheme,
     setShowTheme,
-    setBgColor
+    setTitle,
+    setBgColor,
   });
 
   return (
     <div
       className="min-h-screen flex items-center justify-center p-8"
-      style={{ backgroundColor: '#D7E9D3' }}
+      style={{ backgroundColor: "#D7E9D3" }}
     >
       <BackButton to="/" />
 
       <div
         className={`p-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)] relative flex flex-col`}
-        style={{ width: '679px', height: '740px', backgroundColor: bgColor }}
+        style={{ width: "679px", height: "740px", backgroundColor: bgColor }}
       >
         {/* 날짜 표시 및 달력 */}
         <div className="relative flex justify-end mb-4">
@@ -88,7 +78,7 @@ function ToDoList() {
             >
               <input
                 type="date"
-                value={selectedDate.toISOString().split('T')[0]}
+                value={selectedDate.toISOString().split("T")[0]}
                 onChange={handleDateChange}
                 className="outline-none"
               />
@@ -98,24 +88,7 @@ function ToDoList() {
 
         {/* 제목 */}
         <div className="text-center mb-8">
-          {isEditingTitle ? (
-            <input
-              ref={titleInputRef}
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              onBlur={handleTitleBlur}
-              onKeyDown={handleTitleKeyDown}
-              className="text-3xl font-bold text-gray-800 text-center bg-transparent border-b-2 border-gray-400 outline-none w-full max-w-md mx-auto"
-            />
-          ) : (
-            <h1
-              onClick={() => setIsEditingTitle(true)}
-              className="text-3xl font-bold text-gray-800 cursor-pointer hover:text-gray-600 transition-colors"
-            >
-              {title}
-            </h1>
-          )}
+          <h1 className="text-3xl font-bold text-gray-800">{title}</h1>
         </div>
 
         {/* 할 일 리스트 - 스크롤 가능 */}
@@ -135,7 +108,13 @@ function ToDoList() {
         </div>
       </div>
       <ThemeButton onClick={handleShowTheme} />
-      {showTheme && <ThemeModal ref={themeRef} bgColor={bgColor} handleBgColor={handleBgColor} />}
+      {showTheme && (
+        <ThemeModal
+          ref={themeRef}
+          theme={{ title: title, bgColor: bgColor }}
+          handleBgColor={handleBgColor}
+        />
+      )}
     </div>
   );
 }
